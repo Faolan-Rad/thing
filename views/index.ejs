@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="15">
+  <title>FaolansThing</title>
+  <meta name="description" content="Thing">
+  <meta name="author" content="RAd">
+</head>
+<body>
+    <div style=" margin: 0;padding: 0;width: 200px;background-color: #f1f1f1;position: fixed;height: 100%; overflow: auto;">
+        <%    wss.clients.forEach((client) =>{ %>
+        <a style="  display: block;color: black; padding: 16px;text-decoration: none;">Name: <%= db.get('computers').value()[Clients.get(client)].name %> Fuel:<%= db.get('computers').value()[Clients.get(client)].fuel %>  Id: <%= Clients.get(client) %>
+          
+            <form action="/kill/<%= Clients.get(client) %>" method="get">
+            <button type="submit">Kill</button>
+        </form>
+        <form action="/refuel/<%= Clients.get(client) %>" method="get">
+            <button type="submit">Refuel</button>
+        </form>
+        </a>
+        <%   })    %>
+    </div>
+</body>
+</html>
